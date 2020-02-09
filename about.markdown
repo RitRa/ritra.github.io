@@ -4,6 +4,7 @@ layout: default
 title: About
 permalink: /about/
 ---
+<h1>{{ page.title }}</h1>
 
 I am a BSc. educated Product Designer. I have just completed a HDip. in Data Analytics to strengthen my knowledge of statistical analysis and machine learning, to achieve better results in product design.
 
