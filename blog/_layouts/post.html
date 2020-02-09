@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+     <!-- head -->
+      {% include head.html %}
+
+<body>
+<!-- nav -->
+{% include nav.html %}
+
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+       <div id="content">{{content}}</div>
+     
+<!-- Blog posts -->
+<h2 class="post-list-heading">Posts</h2>
+  {% for post in site.posts %}
+    <ul class="post-list"><li><span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
+        <h3>
+          <a href="{{ post.url }}">{{ post.title }}</a>
+        </h3></li></ul>
+
+          {% endfor %}
+      </div>
+</main>
+    
+
+<!-- Footer -->
+{% include footer.html %}
+
+</body>
+
+</html>

@@ -1,18 +1,27 @@
 ---
-layout: page
+author: Rita Raher
+layout: default
 title: About
 permalink: /about/
 ---
 
-This is the base Jekyll theme. You can find out more info about customizing your Jekyll theme, as well as basic Jekyll usage documentation at [jekyllrb.com](https://jekyllrb.com/)
+I am a BSc. educated Product Designer. I have just completed a HDip. in Data Analytics to strengthen my knowledge of statistical analysis and machine learning, to achieve better results in product design.
 
-You can find the source code for Minima at GitHub:
-[jekyll][jekyll-organization] /
-[minima](https://github.com/jekyll/minima)
+- Leadership
+- Creativity and Innovation
+- Product analytics
+- User Interviews
+- Research
+- Strategy
 
-You can find the source code for Jekyll at GitHub:
-[jekyll][jekyll-organization] /
-[jekyll](https://github.com/jekyll/jekyll)
+Key Technologies and methodologies:
+- R
+- Python
+- Heap
+- Sketch
+- Usability Testing
+- Quantitative Research
+- Qualitative Research
+- Agile
+- DevOps
 
-
-[jekyll-organization]: https://github.com/jekyll
