@@ -1,7 +1,7 @@
 ---
 author: Rita Raher
 layout: default
-title: About
+title: About Me
 permalink: /about/
 ---
 <h1>{{ page.title }}</h1>

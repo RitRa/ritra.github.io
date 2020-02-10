@@ -18,6 +18,8 @@
   {"url":"http://localhost:4000/","headline":"Rita Raher","name":"Rita Raher","description":"My Personal site, Portfolio and Data Science","@type":"WebSite","@context":"https://schema.org"}</script>
   <!-- End Jekyll SEO tag -->
   <link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Rita Raher" />
+  <link rel="stylesheet" href="/css/style.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Rita Raher" />
+
 </head>
 
 
@@ -35,9 +37,11 @@
           </span>
         </label>
         <div class="trigger">
-            <a class="page-link" href="/">Home</a>
+            <a class="page-link" href="/home/">Home</a>
+            <a class="page-link" href="/portfolio/">Portfolio</a>
             <a class="page-link" href="/blog/">Blog</a>
             <a class="page-link" href="/about/">About</a>
+            
         </div>
       </nav>
       </div>
@@ -45,6 +49,7 @@
 
 <main class="page-content" aria-label="Content">
       <div class="wrapper">
+      
        <div id="content"><!-- This is the blog with a list of posts-->
 
 <h1>Blog</h1>
@@ -52,21 +57,26 @@
 
 This is the blog</div>
      
-<!-- Blog posts -->
-<h2 class="post-list-heading">Posts</h2>
+<!-- Blog posts list-->
   
-    <ul class="post-list"><li><span class="post-meta">Feb 9, 2020</span>
-        <h3>
-          <a href="/jekyll/update/2020/02/09/welcome-to-jekyll.html">Welcome to Jekyll!</a>
-        </h3></li></ul>
+    <ul class="post-list">
+        <li><span class="post-meta">Feb 9, 2020</span>
+          <h3>
+            <a href="/jekyll/update/2020/02/09/welcome-to-jekyll.html">Welcome to Jekyll!</a>
+          </h3>
+        </li>
+    </ul>
 
-          
-    <ul class="post-list"><li><span class="post-meta">Feb 9, 2020</span>
-        <h3>
-          <a href="/jekyll/update/2020/02/09/test.html">Test</a>
-        </h3></li></ul>
+      
+    <ul class="post-list">
+        <li><span class="post-meta">Feb 9, 2020</span>
+          <h3>
+            <a href="/design/2020/02/09/test.html">Test</a>
+          </h3>
+        </li>
+    </ul>
 
-          
+      
       </div>
 </main>
     
@@ -90,7 +100,9 @@ This is the blog</div>
       <div class="footer-col footer-col-2">
         <ul class="social-media-list">
             <li><a href="https://github.com/RitRa/"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">RitRa</span></a></li>
-            <li><a href=""><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#twitter"></use></svg> <span class="username">jekyllrb</span></a></li>
+            <li><a href="https://www.linkedin.com/in/ritaraher/"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#linkedin"></use></svg> <span class="username"></span></a></li>
+            <li><a href=""><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#behance"></use></svg> <span class="username"></span></a></li>
+           
         </ul>
 </div>
 
@@ -100,6 +112,13 @@ This is the blog</div>
     </div>
 
   </div>
+        <script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-158072418-1');
+</script>
   </footer>
 
 </body>
