@@ -1,32 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
-     <!-- head -->
+       <!-- head -->
       {% include head.html %}
-
-<body>
-<!-- nav -->
-{% include nav.html %}
-
+  <body>
+       <!-- nav -->
+      {% include nav.html %}
+     <!-- Footer -->
 <main class="page-content" aria-label="Content">
       <div class="wrapper">
-       <div id="content">{{content}}</div>
-     
-<!-- Blog posts -->
-<h2 class="post-list-heading">Posts</h2>
-  {% for post in site.posts %}
-    <ul class="post-list"><li><span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
-        <h3>
-          <a href="{{ post.url }}">{{ post.title }}</a>
-        </h3></li></ul>
 
-          {% endfor %}
-      </div>
+
+ <h3>
+          {{ post.title }}
+        </h3>
+        <div id="content">{{content}}</div>
+      </div>   
 </main>
-    
 
-<!-- Footer -->
-{% include footer.html %}
+     <!-- Footer -->
+      {% include footer.html %}
+  </body>
 
-</body>
-
-</html>
+  </html>
