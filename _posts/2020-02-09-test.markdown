@@ -1,8 +1,10 @@
 ---
 layout: post
 title:  "Test"
+image: https://d2lm6fxwu08ot6.cloudfront.net/img-thumbs/960w/AMNEZ3DLRQ.jpg
 date:   2020-02-09 16:01:53 +0000
 categories: design
+tags: [uxdesign, data]
 
 ---
 
