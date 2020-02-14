@@ -1,0 +1,930 @@
+---
+layout: post
+title:  "Shark dataset"
+image: https://images.unsplash.com/photo-1463936575829-25148e1db1b8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=790&q=80
+date:   2020-02-12 07:01:53 +0000
+categories: Data
+---
+
+
+```python
+import matplotlib.pyplot as plt
+import pandas as pd
+
+```
+
+
+```python
+df = pd.read_csv('../data/attacks.csv')
+#df = pd.read_csv('../data/bank-additional/bank-additional-full.csv', sep=';')
+df
+```
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Case Number</th>
+      <th>Date</th>
+      <th>Year</th>
+      <th>Type</th>
+      <th>Country</th>
+      <th>Area</th>
+      <th>Location</th>
+      <th>Activity</th>
+      <th>Name</th>
+      <th>Sex</th>
+      <th>...</th>
+      <th>Species</th>
+      <th>Investigator or Source</th>
+      <th>pdf</th>
+      <th>href formula</th>
+      <th>href</th>
+      <th>Case Number.1</th>
+      <th>Case Number.2</th>
+      <th>original order</th>
+      <th>Unnamed: 22</th>
+      <th>Unnamed: 23</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>0</td>
+      <td>2018.06.25</td>
+      <td>25-Jun-2018</td>
+      <td>2018.0</td>
+      <td>Boating</td>
+      <td>USA</td>
+      <td>California</td>
+      <td>Oceanside, San Diego County</td>
+      <td>Paddling</td>
+      <td>Julie Wolfe</td>
+      <td>F</td>
+      <td>...</td>
+      <td>White shark</td>
+      <td>R. Collier, GSAF</td>
+      <td>2018.06.25-Wolfe.pdf</td>
+      <td>http://sharkattackfile.net/spreadsheets/pdf_di...</td>
+      <td>http://sharkattackfile.net/spreadsheets/pdf_di...</td>
+      <td>2018.06.25</td>
+      <td>2018.06.25</td>
+      <td>6303.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>2018.06.18</td>
+      <td>18-Jun-2018</td>
+      <td>2018.0</td>
+      <td>Unprovoked</td>
+      <td>USA</td>
+      <td>Georgia</td>
+      <td>St. Simon Island, Glynn County</td>
+      <td>Standing</td>
+      <td>Adyson McNeely</td>
+      <td>F</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>K.McMurray, TrackingSharks.com</td>
+      <td>2018.06.18-McNeely.pdf</td>
+      <td>http://sharkattackfile.net/spreadsheets/pdf_di...</td>
+      <td>http://sharkattackfile.net/spreadsheets/pdf_di...</td>
+      <td>2018.06.18</td>
+      <td>2018.06.18</td>
+      <td>6302.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>2018.06.09</td>
+      <td>09-Jun-2018</td>
+      <td>2018.0</td>
+      <td>Invalid</td>
+      <td>USA</td>
+      <td>Hawaii</td>
+      <td>Habush, Oahu</td>
+      <td>Surfing</td>
+      <td>John Denges</td>
+      <td>M</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>K.McMurray, TrackingSharks.com</td>
+      <td>2018.06.09-Denges.pdf</td>
+      <td>http://sharkattackfile.net/spreadsheets/pdf_di...</td>
+      <td>http://sharkattackfile.net/spreadsheets/pdf_di...</td>
+      <td>2018.06.09</td>
+      <td>2018.06.09</td>
+      <td>6301.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>2018.06.08</td>
+      <td>08-Jun-2018</td>
+      <td>2018.0</td>
+      <td>Unprovoked</td>
+      <td>AUSTRALIA</td>
+      <td>New South Wales</td>
+      <td>Arrawarra Headland</td>
+      <td>Surfing</td>
+      <td>male</td>
+      <td>M</td>
+      <td>...</td>
+      <td>2 m shark</td>
+      <td>B. Myatt, GSAF</td>
+      <td>2018.06.08-Arrawarra.pdf</td>
+      <td>http://sharkattackfile.net/spreadsheets/pdf_di...</td>
+      <td>http://sharkattackfile.net/spreadsheets/pdf_di...</td>
+      <td>2018.06.08</td>
+      <td>2018.06.08</td>
+      <td>6300.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>2018.06.04</td>
+      <td>04-Jun-2018</td>
+      <td>2018.0</td>
+      <td>Provoked</td>
+      <td>MEXICO</td>
+      <td>Colima</td>
+      <td>La Ticla</td>
+      <td>Free diving</td>
+      <td>Gustavo Ramos</td>
+      <td>M</td>
+      <td>...</td>
+      <td>Tiger shark, 3m</td>
+      <td>A .Kipper</td>
+      <td>2018.06.04-Ramos.pdf</td>
+      <td>http://sharkattackfile.net/spreadsheets/pdf_di...</td>
+      <td>http://sharkattackfile.net/spreadsheets/pdf_di...</td>
+      <td>2018.06.04</td>
+      <td>2018.06.04</td>
+      <td>6299.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <td>25718</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>25719</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>25720</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>25721</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>25722</td>
+      <td>xx</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+<p>25723 rows × 24 columns</p>
+</div>
+
+
+
+
+```python
+invoice_customer_df = df.groupby(
+    by=['Location']
+).agg({
+    'InvoiceDate': agg,
+
+}).reset_index()
+invoice_customer_df 
+```
+
+
+    ---------------------------------------------------------------------------
+
+    NameError                                 Traceback (most recent call last)
+
+    <ipython-input-25-bdafb741af9a> in <module>
+          2     by=['Location']
+          3 ).agg({
+    ----> 4     'InvoiceDate': agg,
+          5 
+          6 }).reset_index()
+
+
+    NameError: name 'agg' is not defined
+
+
+
+```python
+# location
+attacks_by_location = df.groupby(
+    by='Location'
+)['Location'].agg(['count'])
+
+attacks_by_location
+```
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>count</th>
+    </tr>
+    <tr>
+      <th>Location</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td></td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>A pearl  farm in Roebuck Bay</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>Ambatolaoka, Nosy Be Island</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>Bellingen</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>Black Head, south of Taree</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <td>½ mile offshore &amp; 9 miles north of Fort Pierce</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>Île Saint-Paul</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>Île de Casey</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>Île de Sable</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>“Southern Wharf”</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+<p>4108 rows × 1 columns</p>
+</div>
+
+
+
+
+```python
+df["Location"].nunique()
+```
+
+
+
+
+    4108
+
+
+
+
+```python
+df.groupby("Location").agg({ "Case Number": pd.Series.nunique})
+
+```
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Case Number</th>
+    </tr>
+    <tr>
+      <th>Location</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td></td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>A pearl  farm in Roebuck Bay</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>Ambatolaoka, Nosy Be Island</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>Bellingen</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>Black Head, south of Taree</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <td>½ mile offshore &amp; 9 miles north of Fort Pierce</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>Île Saint-Paul</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>Île de Casey</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>Île de Sable</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>“Southern Wharf”</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+<p>4108 rows × 1 columns</p>
+</div>
+
+
+
+
+```python
+df.groupby(['Location']).agg(['count'])
+```
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead tr th {
+        text-align: left;
+    }
+
+    .dataframe thead tr:last-of-type th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr>
+      <th></th>
+      <th>Case Number</th>
+      <th>Date</th>
+      <th>Year</th>
+      <th>Type</th>
+      <th>Country</th>
+      <th>Area</th>
+      <th>Activity</th>
+      <th>Name</th>
+      <th>Sex</th>
+      <th>Age</th>
+      <th>...</th>
+      <th>Species</th>
+      <th>Investigator or Source</th>
+      <th>pdf</th>
+      <th>href formula</th>
+      <th>href</th>
+      <th>Case Number.1</th>
+      <th>Case Number.2</th>
+      <th>original order</th>
+      <th>Unnamed: 22</th>
+      <th>Unnamed: 23</th>
+    </tr>
+    <tr>
+      <th></th>
+      <th>count</th>
+      <th>count</th>
+      <th>count</th>
+      <th>count</th>
+      <th>count</th>
+      <th>count</th>
+      <th>count</th>
+      <th>count</th>
+      <th>count</th>
+      <th>count</th>
+      <th>...</th>
+      <th>count</th>
+      <th>count</th>
+      <th>count</th>
+      <th>count</th>
+      <th>count</th>
+      <th>count</th>
+      <th>count</th>
+      <th>count</th>
+      <th>count</th>
+      <th>count</th>
+    </tr>
+    <tr>
+      <th>Location</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td></td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>...</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>A pearl  farm in Roebuck Bay</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>...</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>Ambatolaoka, Nosy Be Island</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>...</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>Bellingen</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>...</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>Black Head, south of Taree</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <td>½ mile offshore &amp; 9 miles north of Fort Pierce</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>Île Saint-Paul</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>Île de Casey</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>Île de Sable</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>“Southern Wharf”</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>...</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+<p>4108 rows × 23 columns</p>
+</div>
+
+
+
+
+```python
+
+```

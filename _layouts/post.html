@@ -7,10 +7,20 @@
       {% include nav.html %}
      <!-- Footer -->
 <main class="page-content" aria-label="Content">
+        <!-- image-->
+     <div class="image-large-post" style="background: url({{ page.image }})">
+        <!-- Title-->
+        <h2 class="post-heading">{{ page.title }} </h2>
+     </div>
       <div class="wrapper">
-
-
-        <h2>{{ page.title }} </h2>
+   
+     <!--Category-->
+        <small>Category: {{ page.categories }}</small>
+     <!--Tags-->
+           {% for tag in post.tags %}
+                <span>   {{ tag }}</span>
+           {% endfor %}
+     <!--Content-->
         <div id="content">{{content}}</div>
       </div>   
 </main>

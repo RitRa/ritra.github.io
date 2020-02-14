@@ -43,8 +43,21 @@
 }
 
 .image-mini{
+	border-radius:50%;
 	width: 100px;
-	height:200px;
+	height:100px;
+	background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+}
+.image-large-post{
+	width: 100%;
+	height:300px;
+	background-repeat: no-repeat;
+    background-position: center center;
+	background-size: cover;
+	margin-top: -30px;
+
 }
 
 .row{
@@ -73,4 +86,19 @@
     -ms-flex: 0 0 66.666667%;
     flex: 0 0 66.666667%;
     max-width: 66.666667%;
+}
+
+.post-heading{
+	color: #fff;
+	font-size:30px;
+	width: 50%;
+    height: 100px;
+    margin: 0 auto;
+    padding-top: 150px;
+
+}
+
+
+.cat-heading{
+	padding-bottom:20px;
 }

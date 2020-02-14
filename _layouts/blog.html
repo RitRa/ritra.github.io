@@ -11,41 +11,25 @@
       <div class="wrapper">
       
        <div id="content">{{content}}</div>
-     
-<!-- Blog posts list-->
+  
+  <!-- Category count list -->
+    {% assign total = 0 %}
   {% for post in site.posts %}
-    <ul class="post-list">
-        <li>
-        <div class="blog-post">
-          <div class="row">
-            <div class="col-md-2">
-                {% if post.image %}
-                <div class="image-mini" style="background-image: url({{ post.image }})">
-                </div>
-                {% endif %}
-            </div>
-            <div class="col-md-8">
-                <h3>
-                  <a href="{{ post.url }}">{{ post.title }}</a>
-                </h3>
-                <small>Category: {{ post.categories }}</small>
-                <p>{{ post.excerpt }}</p>
-                <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
-                  {% for tag in post.tags %}
-                <span>   {{ tag }}</span>
-                {% endfor %}
-              </div>
-          </div>
-          </div>
-          
+     {% if post.category == "design" %}
+      {% assign total = total | plus: 1 %}
+     {% endif %}
+  {% endfor %}
+<ul>
 
-        </li>
-    </ul>
-   
+<ul class="tag-box inline">
+  {% for category in site.categories %}
+    <div><a href="{{ site.baseurl }}/category/{{ category[0] }}">{{ category[0] | capitalize }} <span> ({{ category[1].size }}) </span></a></div>
+  {% endfor %}
+</ul>
 
 
-      {% endfor %}
-      </div>
+
+
 </main>
     
 

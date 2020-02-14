@@ -1,0 +1,994 @@
+<!DOCTYPE html>
+<html lang="en">
+       <!-- head -->
+      <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.6.1 -->
+    <title> | Shark dataset</title>
+  <meta name="generator" content="Jekyll v4.0.0" />
+  <meta property="og:title" content="Rita Raher" />
+  <meta property="og:locale" content="en_US" />
+  <meta name="description" content="My Personal site, Portfolio and Data Science" />
+  <meta property="og:description" content="My Personal site, Portfolio and Data Science" />
+  <link rel="canonical" href="http://localhost:4000/" />
+  <meta property="og:url" content="http://localhost:4000/" />
+  <meta property="og:site_name" content="Rita Raher" />
+  <script type="application/ld+json">
+  {"url":"http://localhost:4000/","headline":"Rita Raher","name":"Rita Raher","description":"My Personal site, Portfolio and Data Science","@type":"WebSite","@context":"https://schema.org"}</script>
+  <!-- End Jekyll SEO tag -->
+  <link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" />
+  <link rel="stylesheet" href="/css/style.css"><link type="application/atom+xml" rel="alternate" />
+<!--<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">-->
+</head>
+
+  <body>
+       <!-- nav -->
+       <header class="site-header" role="banner">
+  <div class="wrapper"><a class="site-title" rel="author" href="/">Rita Raher</a>
+  <nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+        <div class="trigger">
+            <a class="page-link" href="/">Home</a>
+            <a class="page-link" href="/portfolio/">Portfolio</a>
+            <a class="page-link" href="/blog/">Blog</a>
+            <a class="page-link" href="/about/">About</a>
+            
+        </div>
+      </nav>
+      </div>
+</header>
+     <!-- Footer -->
+<main class="page-content" aria-label="Content">
+        <!-- image-->
+     <div class="image-large-post" style="background: url(https://images.unsplash.com/photo-1463936575829-25148e1db1b8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=790&q=80)">
+        <!-- Title-->
+        <h2 class="post-heading">Shark dataset </h2>
+     </div>
+      <div class="wrapper">
+   
+     <!--Category-->
+        <small>Category: Data</small>
+     <!--Tags-->
+           
+     <!--Content-->
+        <div id="content"><div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="n">pd</span>
+
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s">'../data/attacks.csv'</span><span class="p">)</span>
+<span class="c1">#df = pd.read_csv('../data/bank-additional/bank-additional-full.csv', sep=';')
+</span><span class="n">df</span>
+</code></pre></div></div>
+
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Case Number</th>
+      <th>Date</th>
+      <th>Year</th>
+      <th>Type</th>
+      <th>Country</th>
+      <th>Area</th>
+      <th>Location</th>
+      <th>Activity</th>
+      <th>Name</th>
+      <th>Sex</th>
+      <th>...</th>
+      <th>Species</th>
+      <th>Investigator or Source</th>
+      <th>pdf</th>
+      <th>href formula</th>
+      <th>href</th>
+      <th>Case Number.1</th>
+      <th>Case Number.2</th>
+      <th>original order</th>
+      <th>Unnamed: 22</th>
+      <th>Unnamed: 23</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>0</td>
+      <td>2018.06.25</td>
+      <td>25-Jun-2018</td>
+      <td>2018.0</td>
+      <td>Boating</td>
+      <td>USA</td>
+      <td>California</td>
+      <td>Oceanside, San Diego County</td>
+      <td>Paddling</td>
+      <td>Julie Wolfe</td>
+      <td>F</td>
+      <td>...</td>
+      <td>White shark</td>
+      <td>R. Collier, GSAF</td>
+      <td>2018.06.25-Wolfe.pdf</td>
+      <td>http://sharkattackfile.net/spreadsheets/pdf_di...</td>
+      <td>http://sharkattackfile.net/spreadsheets/pdf_di...</td>
+      <td>2018.06.25</td>
+      <td>2018.06.25</td>
+      <td>6303.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>2018.06.18</td>
+      <td>18-Jun-2018</td>
+      <td>2018.0</td>
+      <td>Unprovoked</td>
+      <td>USA</td>
+      <td>Georgia</td>
+      <td>St. Simon Island, Glynn County</td>
+      <td>Standing</td>
+      <td>Adyson McNeely</td>
+      <td>F</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>K.McMurray, TrackingSharks.com</td>
+      <td>2018.06.18-McNeely.pdf</td>
+      <td>http://sharkattackfile.net/spreadsheets/pdf_di...</td>
+      <td>http://sharkattackfile.net/spreadsheets/pdf_di...</td>
+      <td>2018.06.18</td>
+      <td>2018.06.18</td>
+      <td>6302.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>2018.06.09</td>
+      <td>09-Jun-2018</td>
+      <td>2018.0</td>
+      <td>Invalid</td>
+      <td>USA</td>
+      <td>Hawaii</td>
+      <td>Habush, Oahu</td>
+      <td>Surfing</td>
+      <td>John Denges</td>
+      <td>M</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>K.McMurray, TrackingSharks.com</td>
+      <td>2018.06.09-Denges.pdf</td>
+      <td>http://sharkattackfile.net/spreadsheets/pdf_di...</td>
+      <td>http://sharkattackfile.net/spreadsheets/pdf_di...</td>
+      <td>2018.06.09</td>
+      <td>2018.06.09</td>
+      <td>6301.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>2018.06.08</td>
+      <td>08-Jun-2018</td>
+      <td>2018.0</td>
+      <td>Unprovoked</td>
+      <td>AUSTRALIA</td>
+      <td>New South Wales</td>
+      <td>Arrawarra Headland</td>
+      <td>Surfing</td>
+      <td>male</td>
+      <td>M</td>
+      <td>...</td>
+      <td>2 m shark</td>
+      <td>B. Myatt, GSAF</td>
+      <td>2018.06.08-Arrawarra.pdf</td>
+      <td>http://sharkattackfile.net/spreadsheets/pdf_di...</td>
+      <td>http://sharkattackfile.net/spreadsheets/pdf_di...</td>
+      <td>2018.06.08</td>
+      <td>2018.06.08</td>
+      <td>6300.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>2018.06.04</td>
+      <td>04-Jun-2018</td>
+      <td>2018.0</td>
+      <td>Provoked</td>
+      <td>MEXICO</td>
+      <td>Colima</td>
+      <td>La Ticla</td>
+      <td>Free diving</td>
+      <td>Gustavo Ramos</td>
+      <td>M</td>
+      <td>...</td>
+      <td>Tiger shark, 3m</td>
+      <td>A .Kipper</td>
+      <td>2018.06.04-Ramos.pdf</td>
+      <td>http://sharkattackfile.net/spreadsheets/pdf_di...</td>
+      <td>http://sharkattackfile.net/spreadsheets/pdf_di...</td>
+      <td>2018.06.04</td>
+      <td>2018.06.04</td>
+      <td>6299.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <td>25718</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>25719</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>25720</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>25721</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>25722</td>
+      <td>xx</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+<p>25723 rows × 24 columns</p>
+</div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">invoice_customer_df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span>
+    <span class="n">by</span><span class="o">=</span><span class="p">[</span><span class="s">'Location'</span><span class="p">]</span>
+<span class="p">)</span><span class="o">.</span><span class="n">agg</span><span class="p">({</span>
+    <span class="s">'InvoiceDate'</span><span class="p">:</span> <span class="n">agg</span><span class="p">,</span>
+
+<span class="p">})</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+<span class="n">invoice_customer_df</span> 
+</code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>---------------------------------------------------------------------------
+
+NameError                                 Traceback (most recent call last)
+
+&lt;ipython-input-25-bdafb741af9a&gt; in &lt;module&gt;
+      2     by=['Location']
+      3 ).agg({
+----&gt; 4     'InvoiceDate': agg,
+      5 
+      6 }).reset_index()
+
+
+NameError: name 'agg' is not defined
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># location
+</span><span class="n">attacks_by_location</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span>
+    <span class="n">by</span><span class="o">=</span><span class="s">'Location'</span>
+<span class="p">)[</span><span class="s">'Location'</span><span class="p">]</span><span class="o">.</span><span class="n">agg</span><span class="p">([</span><span class="s">'count'</span><span class="p">])</span>
+
+<span class="n">attacks_by_location</span>
+</code></pre></div></div>
+
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>count</th>
+    </tr>
+    <tr>
+      <th>Location</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td></td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>A pearl  farm in Roebuck Bay</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>Ambatolaoka, Nosy Be Island</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>Bellingen</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>Black Head, south of Taree</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <td>½ mile offshore &amp; 9 miles north of Fort Pierce</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>Île Saint-Paul</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>Île de Casey</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>Île de Sable</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>“Southern Wharf”</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+<p>4108 rows × 1 columns</p>
+</div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">df</span><span class="p">[</span><span class="s">"Location"</span><span class="p">]</span><span class="o">.</span><span class="n">nunique</span><span class="p">()</span>
+</code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>4108
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s">"Location"</span><span class="p">)</span><span class="o">.</span><span class="n">agg</span><span class="p">({</span> <span class="s">"Case Number"</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="o">.</span><span class="n">nunique</span><span class="p">})</span>
+
+</code></pre></div></div>
+
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Case Number</th>
+    </tr>
+    <tr>
+      <th>Location</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td></td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>A pearl  farm in Roebuck Bay</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>Ambatolaoka, Nosy Be Island</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>Bellingen</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>Black Head, south of Taree</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <td>½ mile offshore &amp; 9 miles north of Fort Pierce</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>Île Saint-Paul</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>Île de Casey</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>Île de Sable</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>“Southern Wharf”</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+<p>4108 rows × 1 columns</p>
+</div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s">'Location'</span><span class="p">])</span><span class="o">.</span><span class="n">agg</span><span class="p">([</span><span class="s">'count'</span><span class="p">])</span>
+</code></pre></div></div>
+
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead tr th {
+        text-align: left;
+    }
+
+    .dataframe thead tr:last-of-type th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr>
+      <th></th>
+      <th>Case Number</th>
+      <th>Date</th>
+      <th>Year</th>
+      <th>Type</th>
+      <th>Country</th>
+      <th>Area</th>
+      <th>Activity</th>
+      <th>Name</th>
+      <th>Sex</th>
+      <th>Age</th>
+      <th>...</th>
+      <th>Species</th>
+      <th>Investigator or Source</th>
+      <th>pdf</th>
+      <th>href formula</th>
+      <th>href</th>
+      <th>Case Number.1</th>
+      <th>Case Number.2</th>
+      <th>original order</th>
+      <th>Unnamed: 22</th>
+      <th>Unnamed: 23</th>
+    </tr>
+    <tr>
+      <th></th>
+      <th>count</th>
+      <th>count</th>
+      <th>count</th>
+      <th>count</th>
+      <th>count</th>
+      <th>count</th>
+      <th>count</th>
+      <th>count</th>
+      <th>count</th>
+      <th>count</th>
+      <th>...</th>
+      <th>count</th>
+      <th>count</th>
+      <th>count</th>
+      <th>count</th>
+      <th>count</th>
+      <th>count</th>
+      <th>count</th>
+      <th>count</th>
+      <th>count</th>
+      <th>count</th>
+    </tr>
+    <tr>
+      <th>Location</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td></td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>...</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>A pearl  farm in Roebuck Bay</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>...</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>Ambatolaoka, Nosy Be Island</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>...</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>Bellingen</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>...</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>Black Head, south of Taree</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <td>½ mile offshore &amp; 9 miles north of Fort Pierce</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>Île Saint-Paul</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>Île de Casey</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>Île de Sable</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>“Southern Wharf”</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>...</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+<p>4108 rows × 23 columns</p>
+</div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+</code></pre></div></div>
+</div>
+      </div>   
+</main>
+
+     <!-- Footer -->
+       
+<footer class="site-footer h-card">
+
+ <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Rita Raher</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">Rita Raher</li><li><a class="u-email" href="mailto:ritaraher@gmail.com">ritaraher@gmail.com</a></li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2">
+        <ul class="social-media-list">
+            <li><a href="https://github.com/RitRa/"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">GitHub</span></a></li>
+            <li><a href="https://www.linkedin.com/in/ritaraher/"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#linkedin"></use></svg> <span class="username">LinkedIn</span></a></li>
+            <li><a href=""><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#behance"></use></svg> <span class="username"></span></a></li>
+           
+        </ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>Hi, I'm Rita</p>
+      </div>
+    </div>
+
+  </div>
+        
+ <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-158072418-1"></script>
+<script src="/js/google_analytics.js"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js" type="text/javascript"></script>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js" type="text/javascript"></script>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"></script>
+ <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11"></script>
+ <script src="/js/custom.js"></script>
+
+
+  </footer>
+  </body>
+
+  </html>
